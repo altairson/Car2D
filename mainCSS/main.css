@@ -1,0 +1,176 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main{
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+#controls{
+    width: 80%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;   
+}
+
+#start{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.turnskeys{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main div{
+    height: 100%;
+}
+
+#mainroad{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    height: 200%;
+    bottom: 100%;
+    position: relative;
+}
+
+.started{
+    animation: moving-road 4s infinite;
+    animation-timing-function: linear;
+}
+
+#startStop::after{
+    content: "Stop";
+}
+
+.stopped::after{
+    
+    content: "Start" !important;
+
+}
+
+@keyframes moving-road {
+    from {
+        bottom: 100%;
+    }
+    to {
+        bottom: 6%;
+    }
+  }
+
+.sideroad{
+    width: 25%;
+    background-color: green;
+}
+
+.road{
+    width: 33.333%;
+    background-color: grey;
+}
+
+#controls button{
+    padding: 20px 100px;
+    color: black;
+    background-color: beige;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+#mainroad :nth-child(2) {
+    background-image: linear-gradient(rgb(255, 255, 255) 60%, rgba(255, 255, 255, 0) 0%);
+    background-position: right;
+    background-size: 10px 100px;
+    background-repeat: repeat-y;
+}
+#mainroad :nth-child(1) {
+    background-image: linear-gradient(rgb(255, 255, 255) 60%, rgba(255, 255, 255, 0) 0%);
+    background-position: right;
+    background-size: 10px 100px;
+    background-repeat: repeat-y;
+}
+
+#car {
+    background-image: url(../media/car.png);
+    height: 200px;
+    width: 96px;
+    position: absolute;
+    bottom: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 47.5%;
+}
+
+.object{
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top: -30%;
+    background-image: url(../media/car2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.moveObject {
+    animation: moving-obj 4s;
+    animation-timing-function: linear;
+}
+
+@keyframes moving-obj {
+    from {
+        top: -30%;
+    }
+    to {
+        top: 100%;
+    }
+  }
+
+.obj-row1{
+
+    left: 10.1%;
+
+}
+
+.obj-row2{
+    left: 43.5%;
+}
+
+.obj-row3{
+    left: 77.1%;
+}
+
+#cars {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    width: 40%;
+    border: 1px solid red;
+    height: 90%;
+    overflow: hidden;
+}
