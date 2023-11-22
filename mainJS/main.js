@@ -3,12 +3,11 @@ $(document).ready(function() {
     var randObjIntervalId;
     var checkColIntervalID;
     $("#startStop").click(function() {
-
-        
         $("#mainroad").toggleClass("started");
         $("#startStop").toggleClass("stopped");
         if(!$("#startStop").hasClass("stopped")) {
-            randObjIntervalId = setInterval(function() {
+                randObjIntervalId = setInterval(function() {
+                checkColIntervalID = setInterval(checkCollision, 100);
                 spawnRandomObject();
             }, 1000);
         }
@@ -34,15 +33,26 @@ $(document).ready(function() {
             ) {
                 // Collision detected, handle it as needed
                 console.log("Collision with object " + i);
-                alert("Collision detected");
+                gameOver();
                 // Add your collision logic here, such as game over or score update
             }
         }
     }
 
+    $("#newgame").click(function () {
+        $(".game-over").addClass("hidden");
+        $("#startStop").click();
+    });
 
-    const leftBorder = 27.5;
-    const rightBorder = 61.7;
+    function gameOver() {
+        $(".game-over").removeClass("hidden");
+        $(".object").removeClass("moveObject");
+        $("#startStop").click();
+    }
+
+
+    const leftBorder = 30.5;
+    const rightBorder = 64.5;
     const increment = 0.5;
     let intervalId;
     let isKeyPressed = false;

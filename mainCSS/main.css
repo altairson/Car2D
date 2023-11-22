@@ -114,6 +114,28 @@ main div{
     background-repeat: repeat-y;
 }
 
+.hidden {
+    display: none !important;
+}
+
+.game-over {
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;;
+
+}
+
 #car {
     background-image: url(../media/car.png);
     height: 200px;
@@ -123,6 +145,10 @@ main div{
     background-size: contain;
     background-repeat: no-repeat;
     left: 47.5%;
+}
+
+.game-over button {
+    padding: 10px 20px;
 }
 
 .object{
