@@ -162,7 +162,7 @@ main div{
 }
 
 .moveObject {
-    animation: moving-obj 4s;
+    animation: moving-obj 3s;
     animation-timing-function: linear;
 }
 
@@ -177,16 +177,28 @@ main div{
 
 .obj-row1{
 
-    left: 10.1%;
+    left: 2.1%;
 
 }
 
 .obj-row2{
-    left: 43.5%;
+    left: 16.5%;
 }
 
 .obj-row3{
-    left: 77.1%;
+    left: 35.1%;
+}
+
+.obj-row4{
+    left: 50.1%;
+}
+
+.obj-row5{
+    left: 69.1%;
+}
+
+.obj-row6{
+    left: 84.1%;
 }
 
 #cars {

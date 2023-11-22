@@ -2,6 +2,17 @@ $(document).ready(function() {
 
     var randObjIntervalId;
     var checkColIntervalID;
+
+    var colision_rigt = -10;
+    var colision_left = 10;
+
+    $("#colision1").change(function() {
+        colision_rigt = parseFloat($("#colision1").val());
+    })
+
+    $("#colision2").change(function() {
+        colision_left = parseFloat($("#colision2").val());
+    })
     $("#startStop").click(function() {
         $("#mainroad").toggleClass("started");
         $("#startStop").toggleClass("stopped");
@@ -9,7 +20,7 @@ $(document).ready(function() {
                 randObjIntervalId = setInterval(function() {
                 checkColIntervalID = setInterval(checkCollision, 100);
                 spawnRandomObject();
-            }, 1000);
+            }, 500);
         }
         else {
             clearInterval(randObjIntervalId);
@@ -26,8 +37,8 @@ $(document).ready(function() {
             let objectRect = cars[i].getBoundingClientRect();
 
             if (
-                carRect.left < objectRect.right &&
-                carRect.right > objectRect.left &&
+                (carRect.left + colision_left) < objectRect.right &&
+                (carRect.right + colision_rigt) > objectRect.left &&
                 carRect.top < objectRect.bottom &&
                 carRect.bottom > objectRect.top
             ) {
@@ -46,17 +57,17 @@ $(document).ready(function() {
 
     function gameOver() {
         $(".game-over").removeClass("hidden");
-        $(".object").removeClass("moveObject");
+        // $(".object").removeClass("moveObject");
         $("#startStop").click();
     }
 
 
     const leftBorder = 30.5;
     const rightBorder = 64.5;
-    const increment = 0.5;
+    const increment = 0.1;
     let intervalId;
     let isKeyPressed = false;
-    const moveSpeed = 10; // adjust the speed as needed
+    const moveSpeed = 7; // adjust the speed as needed
 
     // Arrow key press events
     $(document).keydown(function(e) {
@@ -119,14 +130,14 @@ $(document).ready(function() {
     }
 
     function spawnRandomObject() {
-        let randRow = Math.floor(Math.random() * 3);
+        let randRow = Math.floor(Math.random() * 6);
         let cars = $(".object");
         if(!cars[randRow].classList.contains("moveObject")) {
             cars[randRow].classList.add("moveObject");
             console.log("added class " + randRow);
             setTimeout(function() {
                 removeClass(randRow);
-            }, 5000);
+            }, 3100);
         }
     }
 
